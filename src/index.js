@@ -7,4 +7,4 @@ async function displayWeather(location) {
 }
 
 displayWeather(37920)
-    .then(response => {console.log(`The conditions in ${response.location.name}: ${response.current.condition.text}. It is ${response.current.temp_f} degrees fahrenheit.`);})
+    .then(response => {console.log(response);})

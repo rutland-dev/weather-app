@@ -7,10 +7,22 @@ async function getCurrentWeatherData(location) {
         const response = await fetch(`${baseURL}/current.json?key=${apiKey}&q=${location}`)
         const data = await response.json();
 
-        return data;
+        const weatherObject = {
+            location: data.location.name,
+            condition: data.current.condition,
+            temp: data.current.temp_f,
+            windMph: data.current.wind_mph,
+            windDir: data.current.wind_dir,
+            precipitation: data.current.precip_in,
+            humidity: data.current.humidity,
+            cloud: data.current.cloud,
+            isDay: data.current.is_day
+        }
+
+        return weatherObject;
 
     } catch(error) {
-        
+
         return error;
     }
 }
