@@ -6,5 +6,9 @@ async function displayWeather(location) {
     return result;
 }
 
-displayWeather(37920)
-    .then(response => {console.log(response);})
+    const getWeatherButton = document.getElementById("get-weather-button");
+
+    getWeatherButton.addEventListener("click", () => {
+        const location = document.getElementById("location");
+        displayWeather(location.value).then(response => {console.log(response);});
+    })

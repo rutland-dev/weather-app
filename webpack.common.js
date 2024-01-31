@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: "./src/index.js",
     weatherFetch: "./src/weatherFetch.js",
+    DOM: "./src/DOM.js",
   },
   output: {
     filename: "[name].bundle.js",
@@ -24,6 +25,18 @@ module.exports = {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: "asset/resource"
+      }
     ],
   },
 };
