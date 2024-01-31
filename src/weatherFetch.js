@@ -8,7 +8,9 @@ async function getCurrentWeatherData(location) {
         const data = await response.json();
 
         return data;
+
     } catch(error) {
+        
         return error;
     }
 }
