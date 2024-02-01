@@ -1,5 +1,6 @@
 import "./style.css";
 import { getCurrentWeatherData } from "./weatherFetch";
+import { updateDisplay } from "./DOM";
 
 async function displayWeather(location) {
     const result = await getCurrentWeatherData(location);
@@ -10,5 +11,5 @@ async function displayWeather(location) {
 
     getWeatherButton.addEventListener("click", () => {
         const location = document.getElementById("location");
-        displayWeather(location.value).then(response => {console.log(response);});
+        displayWeather(location.value).then(response => {updateDisplay(response);});
     })

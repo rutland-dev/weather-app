@@ -127,3 +127,80 @@ body {
 .location-form-div form button:hover {
     background-color: rgba(0, 0, 255, .5);
 }
+
+.content {
+    height: 80%;
+    margin-top: 7.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-display-div {
+    background: white;
+    background: linear-gradient(
+        to right bottom,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.2)
+    );
+    backdrop-filter: blur(.5rem);
+    z-index: 1;
+    border: solid .3rem rgba(60, 60, 255, .7);
+    box-shadow: inset white 0 0 2rem -1rem;
+    border-radius: 5rem;
+    height: 80%;
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 8% 1fr 1fr;
+    padding: 0 2rem 2rem 2rem;
+}
+
+.cloud-cover, .humidity, .precipitation, .temperature, .wind-direction, .wind-mph {
+    height: 10rem;
+    width: 10rem;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 2rem;
+    background-color: rgba(255, 255, 255, .5);
+    z-index: 1;
+    border: solid .3rem rgba(255, 255, 255, .3);
+    box-shadow: inset white 0 0 2rem -1rem;
+}
+
+.location-title {
+    justify-self: center;
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: 2rem;
+}
+
+.condition {
+    grid-area: 2 / 2 / 3 / 3;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.cloud-cover {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.humidity {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.precipitation {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.temperature {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+.wind-direction {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.wind-mph {
+    grid-area: 4 / 3 / 5 / 4;
+}
