@@ -10,7 +10,7 @@ async function getCurrentWeatherData(location) {
         const weatherObject = {
             location: data.location.name,
             condition: data.current.condition,
-            temp: data.current.temp_f,
+            temperature: data.current.temp_f,
             windMph: data.current.wind_mph,
             windDir: data.current.wind_dir,
             precipitation: data.current.precip_in,

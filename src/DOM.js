@@ -24,6 +24,11 @@ function updateDisplay(object) {
 
     windMph. textContent = object.windMph;
 
+    const conditionIcon = document.createElement("img");
+    conditionIcon.setAttribute("src", object.condition.icon);
+    conditionIcon.setAttribute("id", "condition-icon");
+    condition.appendChild(conditionIcon);
+
     console.log(object);
 }
 
