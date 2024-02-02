@@ -1,6 +1,6 @@
 import "./style.css";
 import { getWeatherData } from "./weatherFetch";
-import { updateDisplay } from "./DOM";
+import { updateDisplay, hideDisplay, revealDisplay } from "./DOM";
 // import "./images"
 
 async function displayWeather(location) {
@@ -10,7 +10,20 @@ async function displayWeather(location) {
 
     const getWeatherButton = document.getElementById("get-weather-button");
 
-    getWeatherButton.addEventListener("click", () => {
+    getWeatherButton.addEventListener("click", async () => {
         const location = document.getElementById("location");
-        displayWeather(location.value).then(response => {updateDisplay(response);});
+        const response = await displayWeather(location.value);
+        await updateDisplay(response);
+        revealDisplay();
     })
+
+    const locationInput = document.getElementById("location");
+    
+    locationInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            getWeatherButton.click();
+        }
+    });
+
+window.addEventListener("load", () => getWeatherButton.click());

@@ -6,18 +6,30 @@ const precipitation = document.getElementById("precipitation-span");
 const temperature = document.getElementById("temperature-span");
 const windDirection = document.getElementById("wind-direction-span");
 const windMph = document.getElementById("wind-mph-span");
+const outerMainDiv = document.querySelector(".outer-main");
+const innerMainDiv = document.querySelector(".inner-main");
 const cloudBackgroundImage = require("./images/clouds.webp");
 const nightSkyBackgroundImage = require("./images/night-sky.jpg");
 
-function updateDisplay(object) {
+function revealDisplay() {
+    outerMainDiv.classList.add("hidden");
+    innerMainDiv.classList.remove("hidden");
+}
+
+function hideDisplay() {
+    outerMainDiv.classList.remove("hidden");
+    innerMainDiv.classList.add("hidden");
+}
+
+async function updateDisplay(object) {
 
     if (object.isDay) {
-        document.body.setAttribute("style", `background-image: url(${cloudBackgroundImage});`);
+        document.querySelector(".inner-main").setAttribute("style", `background-image: url(${cloudBackgroundImage});`);
         document.querySelector(".header").setAttribute("style", "backdrop-filter: blur(.5rem);")
         document.querySelector(".weather-display-div").setAttribute("style", "backdrop-filter: blur(.5rem);")
 
     } else {
-        document.body.setAttribute("style", `background-image: url(${nightSkyBackgroundImage});`);
+        document.querySelector(".inner-main").setAttribute("style", `background-image: url(${nightSkyBackgroundImage});`);
     }
 
     locationTitleDiv.textContent = `${object.location.name}, ${object.location.region}`;
@@ -40,7 +52,8 @@ function updateDisplay(object) {
     conditionIcon.setAttribute("src", object.condition.icon);
     conditionIcon.setAttribute("id", "condition-icon");
     condition.appendChild(conditionIcon);
-
 }
 
 module.exports.updateDisplay = updateDisplay;
+module.exports.revealDisplay = revealDisplay;
+module.exports.hideDisplay = hideDisplay;

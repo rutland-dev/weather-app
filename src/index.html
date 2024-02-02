@@ -7,70 +7,78 @@
 </head>
 <body>
 
-    <div class="header">
-        <div class="location-form-div">
-            <form action="" method="post">
-                <label for="location">Enter A Location</label>
-                <input type="text" name="location" id="location" value="37920">
-                <button type="button" id="get-weather-button">Get Weather</button>
-            </form>
-        </div>
-        <div class="header-text">A Licked Finger In The Air</div>
-        <div class="header-image"><img src="images/licked-finger.png" alt="A drawing of a farmer with his finger held up to check the weather"></div>
+    <div class="outer-main">
+        <h1>Loading...</h1>
     </div>
-
-    <div class="content">
-        <div class="weather-display-div">
-            <div class="location-title"></div>
-            <div class="condition"></div>
-            <div class="cloud-cover">
-                <div class="display-card-title-div">
-                    <p>Cloud Cover</p>
-                    <span id="cloud-cover-span"></span>
-                </div>
-                <div class="display-card-content-div"></div>
+    <div class="inner-main hidden" style="display: none;">
+        <div class="header">
+            <div class="location-form-div">
+                <form action="" method="post">
+                    <label for="location">Enter A Location</label>
+                    <input type="text" name="location" id="location" value="37920">
+                    <button type="button" id="get-weather-button">Get Weather</button>
+                </form>
             </div>
-            <div class="humidity">
-                <div class="display-card-title-div">
-                    <p>Humidity</p>
-                    <span id="humidity-span"></span>
+            <div class="header-text">A Licked Finger In The Air</div>
+            <div class="header-image"><img src="images/licked-finger.png" alt="A drawing of a farmer with his finger held up to check the weather"></div>
+        </div>
+        <div class="content">
+            <div class="weather-display-div">
+                <div class="location-title"></div>
+                <div class="condition"></div>
+                <div class="cloud-cover">
+                    <div class="display-card-title-div">
+                        <p>Cloud Cover</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="cloud-cover-span"></span>
+                    </div>
                 </div>
-                <div class="display-card-content-div"></div>
-            </div>
-            <div class="precipitation">
-                <div class="display-card-title-div">
-                    <p>Precipitation</p>
-                    <span id="precipitation-span"></span>
+                <div class="humidity">
+                    <div class="display-card-title-div">
+                        <p>Humidity</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="humidity-span"></span>
+                    </div>
                 </div>
-                <div class="display-card-content-div"></div>
-            </div>
-            <div class="temperature">
-                <div class="display-card-title-div">
-                    <p>Temperature</p>
-                    <span id="temperature-span"></span>
-                    <p>&deg; Fahrenheit</p>
+                <div class="precipitation">
+                    <div class="display-card-title-div">
+                        <p>Precipitation</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="precipitation-span"></span>
+                    </div>
                 </div>
-                <div class="display-card-content-div"></div>
-            </div>
-            <div class="wind-direction">
-                <div class="display-card-title-div">
-                    <p>Wind Direction</p>
-                    <span id="wind-direction-span"></span>
+                <div class="temperature">
+                    <div class="display-card-title-div">
+                        <p>Temperature</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="temperature-span"></span>
+                        <p>&deg; Fahrenheit</p>
+                    </div>
                 </div>
-                <div class="display-card-content-div"></div>
-            </div>
-            <div class="wind-mph">
-                <div class="display-card-title-div">
-                    <p>Wind Speed</p>
-                    <span id="wind-mph-span"></span>
+                <div class="wind-direction">
+                    <div class="display-card-title-div">
+                        <p>Wind Direction</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="wind-direction-span"></span>
+                    </div>
                 </div>
-                <div class="display-card-content-div"></div>
+                <div class="wind-mph">
+                    <div class="display-card-title-div">
+                        <p>Wind Speed</p>
+                    </div>
+                    <div class="display-card-content-div">
+                        <span id="wind-mph-span"></span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="footer">
-
+        <div class="footer">
+        </div>
     </div>
 
 </body>
