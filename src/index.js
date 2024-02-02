@@ -1,9 +1,10 @@
 import "./style.css";
-import { getCurrentWeatherData } from "./weatherFetch";
+import { getWeatherData } from "./weatherFetch";
 import { updateDisplay } from "./DOM";
+// import "./images"
 
 async function displayWeather(location) {
-    const result = await getCurrentWeatherData(location);
+    const result = await getWeatherData("current", location);
     return result;
 }
 
