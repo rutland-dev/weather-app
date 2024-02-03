@@ -1,59 +1,65 @@
-const locationTitleDiv = document.querySelector(".location-title");
-const cloudCover = document.getElementById("cloud-cover-span");
-const condition = document.querySelector(".condition");
-const humidity = document.getElementById("humidity-span");
-const precipitation = document.getElementById("precipitation-span");
-const temperature = document.getElementById("temperature-span");
-const windDirection = document.getElementById("wind-direction-span");
-const windMph = document.getElementById("wind-mph-span");
-const outerMainDiv = document.querySelector(".outer-main");
-const innerMainDiv = document.querySelector(".inner-main");
+const elements = {
+    header: document.querySelector(".header"),
+    weatherDisplayDiv: document.querySelector(".weather-display-div"),
+    locationTitleDiv: document.querySelector(".location-title"),
+    cloudCover: document.getElementById("cloud-cover-span"),
+    condition: document.querySelector(".condition"),
+    humidity: document.getElementById("humidity-span"),
+    precipitation: document.getElementById("precipitation-span"),
+    temperature: document.getElementById("temperature-span"),
+    windDirection: document.getElementById("wind-direction-span"),
+    windMph: document.getElementById("wind-mph-span"),
+    outerMainDiv: document.querySelector(".outer-main"),
+    innerMainDiv: document.querySelector(".inner-main"),
+    ringDiv: document.querySelector(".ring"),
+}
+
 const cloudBackgroundImage = require("./images/clouds.webp");
 const nightSkyBackgroundImage = require("./images/night-sky.jpg");
 
 function revealDisplay() {
-    outerMainDiv.classList.add("hidden");
-    innerMainDiv.classList.remove("hidden");
+    elements.outerMainDiv.classList.add("hidden");
+    elements.ringDiv.classList.add("hidden");
+    elements.innerMainDiv.classList.remove("hidden");
 }
 
-function hideDisplay() {
-    outerMainDiv.classList.remove("hidden");
-    innerMainDiv.classList.add("hidden");
+function setBackgroundAndBlur(isDay) {
+    const backgroundImage = isDay ? cloudBackgroundImage : nightSkyBackgroundImage;
+    elements.innerMainDiv.style.backgroundImage = `url(${backgroundImage})`;
+    if (isDay) {
+        elements.header.style.backdropFilter = "blur(.5rem)";
+        elements.weatherDisplayDiv.style.backdropFilter = "blur(.5rem)";
+    }
 }
 
-async function updateDisplay(object) {
-
-    if (object.isDay) {
-        document.querySelector(".inner-main").setAttribute("style", `background-image: url(${cloudBackgroundImage});`);
-        document.querySelector(".header").setAttribute("style", "backdrop-filter: blur(.5rem);")
-        document.querySelector(".weather-display-div").setAttribute("style", "backdrop-filter: blur(.5rem);")
-
-    } else {
-        document.querySelector(".inner-main").setAttribute("style", `background-image: url(${nightSkyBackgroundImage});`);
+function updateDisplay(object) {
+    if (document.getElementById("condition-icon")) {
+        document.getElementById("condition-icon").remove();
     }
 
-    locationTitleDiv.textContent = `${object.location.name}, ${object.location.region}`;
+    setBackgroundAndBlur(object.isDay)
 
-    condition.textContent = object.condition.text;
+    elements.locationTitleDiv.textContent = `${object.location.name}, ${object.location.region}`;
 
-    cloudCover.textContent = `${object.cloud}%`;
+    elements.condition.textContent = object.condition.text;
 
-    humidity.textContent = `${object.humidity}%`;
+    elements.cloudCover.textContent = `${object.cloud}%`;
 
-    precipitation.textContent = `${object.precipitation} inches`;
+    elements.humidity.textContent = `${object.humidity}%`;
 
-    temperature.textContent = `${object.temperature}`;
+    elements.precipitation.textContent = `${object.precipitation} inches`;
 
-    windDirection.textContent = object.windDir;
+    elements.temperature.textContent = `${object.temperature}`;
 
-    windMph. textContent = object.windMph;
+    elements.windDirection.textContent = object.windDir;
+
+    elements.windMph.textContent = `${object.windMph} MPH`;
 
     const conditionIcon = document.createElement("img");
     conditionIcon.setAttribute("src", object.condition.icon);
     conditionIcon.setAttribute("id", "condition-icon");
-    condition.appendChild(conditionIcon);
+    elements.condition.appendChild(conditionIcon);
 }
 
 module.exports.updateDisplay = updateDisplay;
 module.exports.revealDisplay = revealDisplay;
-module.exports.hideDisplay = hideDisplay;

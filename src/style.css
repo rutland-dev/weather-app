@@ -81,6 +81,10 @@ body {
     background-size: cover;
 }
 
+.hidden {
+    display: none;
+}
+
 .header {
     display: grid;
     grid-template-columns: 15rem 1fr 9rem;
@@ -199,7 +203,7 @@ body {
     grid-area: 2 / 1 / 3 / 4;
     text-align: center;
     font-size: 1.5rem;
-    gap: .4rem;
+    margin-bottom: .5rem;
 }
 
 #condition-icon {
@@ -243,8 +247,4 @@ width: 4rem;
 
 .wind-mph {
     grid-area: 4 / 3 / 5 / 4;
-}
-
-.hidden {
-    display: none;
 }
