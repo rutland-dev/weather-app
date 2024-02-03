@@ -1,6 +1,6 @@
 const apiKey = "3ef79a1c797e47ac8b122833243001"
 
-const baseURL = "http://api.weatherapi.com/v1"
+const baseURL = "https://api.weatherapi.com/v1"
 
 let apiMethod;
 
